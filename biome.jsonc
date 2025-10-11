@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "root": true,
+  "extends": ["ultracite"],
+  "linter": {
+    "rules": {
+      "performance": {
+        "noBarrelFile": "off"
+      }
+    }
+  },
+  //  "assist": {
+  //    "enabled": true,
+  //    "actions": {
+  //      "source": {
+  //        "organizeImports": {
+  //          "level": "on",
+  //          "options": {
+  //            "groups": [
+  //              {
+  //                "type": true
+  //              }
+  //            ]
+  //          }
+  //        }
+  //      }
+  //    }
+  //  },
+  "formatter": {
+    "enabled": true,
+    "useEditorconfig": true,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space",
+      "bracketSpacing": true
+    }
+  }
+}

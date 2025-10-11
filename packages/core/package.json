@@ -1,0 +1,31 @@
+{
+  "name": "@react-lib/core",
+  "description": "A react component library",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "bunup",
+    "tsc": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/lodash": "catalog:types",
+    "@types/react": "catalog:types",
+    "clsx": "catalog:",
+    "lodash": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "clsx": "catalog:peer",
+    "lodash": "catalog:peer",
+    "react": "catalog:peer",
+    "react-dom": "catalog:peer",
+    "typescript": "catalog:peer"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "isolatedDeclarations": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "composite": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@packages/*": ["./packages/*"]
+    },
+    "strictNullChecks": true
+  },
+  "include": ["packages/**/*", "apps/**/*", "app.d.ts"],
+  "exclude": ["node_modules", "dist", "bunup.config.ts"],
+  "references": [{ "path": "./apps/ui" }]
+}

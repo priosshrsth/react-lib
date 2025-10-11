@@ -1,0 +1,68 @@
+@layer base {
+  .react-lib-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      text-transform: uppercase;
+    }
+
+    th,
+    td {
+      padding: 0.75rem;
+      white-space: break-spaces;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    th {
+      &.sortable {
+        cursor: pointer;
+
+        > * {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          flex-wrap: nowrap;
+        }
+
+        &.active {
+          filter: brightness(0.8);
+        }
+      }
+
+      .heading-wrapper {
+        text-transform: capitalize;
+      }
+
+      .sort-icon {
+        &.is-asc {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .pagination-button {
+    padding: 0.4rem 0.8rem;
+    background: none;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .pagination-button.active {
+    font-weight: bold;
+  }
+
+  .pagination-ellipsis {
+    padding: 0.4rem 0.8rem;
+  }
+}
