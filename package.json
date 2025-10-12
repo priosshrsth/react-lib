@@ -10,7 +10,7 @@
     "dev:packages": "bun run --filter './packages/*' dev",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
-    "tsc": "tsc -b",
+    "tsc": "tsc --noEmit && bun run --filter './apps/*' tsc",
     "release": "bumpp --commit --push --tag"
   },
   "catalog": {

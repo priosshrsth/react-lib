@@ -1,8 +1,0 @@
-{
-  "extends": "../../config/common.tsconfig.json",
-  "compilerOptions": {
-    "composite": true,
-    "declaration": true,
-    "isolatedDeclarations": false
-  }
-}

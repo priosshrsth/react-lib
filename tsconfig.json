@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "ES2022",
@@ -12,14 +13,12 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "composite": true,
     "paths": {
       "@/*": ["./*"],
       "@packages/*": ["./packages/*"]
     },
     "strictNullChecks": true
   },
-  "include": ["packages/**/*", "apps/**/*", "app.d.ts"],
-  "exclude": ["node_modules", "dist", "bunup.config.ts"],
-  "references": [{ "path": "./apps/ui" }]
+  "include": ["packages/**/*", "app.d.ts"],
+  "exclude": ["node_modules", "dist", "bunup.config.ts", "apps"]
 }

@@ -6,6 +6,9 @@
     "rules": {
       "performance": {
         "noBarrelFile": "off"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
       }
     }
   },
