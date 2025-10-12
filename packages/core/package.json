@@ -3,6 +3,31 @@
   "description": "A react component library",
   "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./table": {
+      "import": {
+        "types": "./dist/table/index.d.ts",
+        "default": "./dist/table/index.js"
+      }
+    },
+    "./set-search-params": {
+      "import": {
+        "types": "./dist/set-search-params/index.d.ts",
+        "default": "./dist/set-search-params/index.js"
+      }
+    },
+    "./lazy-search": {
+      "import": {
+        "types": "./dist/lazy-search/index.d.ts",
+        "default": "./dist/lazy-search/index.js"
+      }
+    },
+    "./table.css": "./dist/table/index.css",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "bunup",
     "tsc": "tsc --noEmit"

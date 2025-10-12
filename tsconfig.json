@@ -14,8 +14,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@packages/*": ["./packages/*"]
+      "@react-lib/*": ["./packages/*"]
     },
     "strictNullChecks": true
   },

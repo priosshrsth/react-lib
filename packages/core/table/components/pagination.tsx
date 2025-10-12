@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchQuery } from "@packages/core/search-query/contexts/use-search-query";
+import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
 import type { ReactNode } from "react";
 
 const PAGE_BTN_CLASS = "h-9 w-9 p-0 transition-colors";

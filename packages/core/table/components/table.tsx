@@ -1,8 +1,8 @@
 import clsx from "clsx";
 
-import "src/components/modules/data-table/styles/table.css";
-import { useSearchQuery } from "@packages/core/search-query/contexts/use-search-query";
-import type { ColumnDefinition, RowData } from "@packages/core/table/types/type";
+import "@react-lib/core/table/styles/table.css";
+import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
+import type { ColumnDefinition, RowData } from "@react-lib/core/table/types/type";
 import type { ReactNode } from "react";
 import { Pagination } from "./pagination";
 

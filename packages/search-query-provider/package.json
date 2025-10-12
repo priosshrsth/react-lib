@@ -1,8 +1,26 @@
 {
-  "name": "@react-lib/search-query",
-  "description": "A react component library",
+  "name": "@react-lib/search-query-provider",
+  "description": "Search query provider to use with @react-lib/core/search-query",
   "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./schemas": {
+      "import": {
+        "types": "./dist/schemas/index.d.ts",
+        "default": "./dist/schemas/index.js"
+      }
+    },
+    "./contexts": {
+      "import": {
+        "types": "./dist/contexts/index.d.ts",
+        "default": "./dist/contexts/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "bunup",
     "tsc": "tsc --noEmit"

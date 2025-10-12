@@ -1,9 +1,9 @@
 "use client";
 
-import { useLazySearch } from "@packages/core/lazy-search";
-import { SearchQueryContext } from "@packages/core/search-query/contexts/search-query.context";
-import type { IBaseSearchQuery } from "@packages/core/search-query/types";
-import { setSearchParams } from "@packages/core/set-search-params";
+import { useLazySearch } from "@react-lib/core/lazy-search";
+import { SearchQueryContext } from "@react-lib/core/search-query/contexts/search-query.context";
+import type { IBaseSearchQuery } from "@react-lib/core/search-query/types";
+import { setSearchParams } from "@react-lib/core/set-search-params";
 import { isEqual } from "lodash";
 import { type ReactNode, useCallback, useEffect, useState, useTransition } from "react";
 

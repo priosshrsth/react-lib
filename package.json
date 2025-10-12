@@ -63,6 +63,7 @@
   },
   "homepage": "https://github.com/priosshrsth/@react-lib#readme",
   "dependencies": {
+    "@tanstack/react-query": "^5.90.2",
     "dev": "^0.1.3"
   }
 }

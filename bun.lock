@@ -4,32 +4,36 @@
     "": {
       "name": "@react-lib",
       "dependencies": {
-        "dev": "latest",
+        "@tanstack/react-query": "^5.90.2",
+        "dev": "^0.1.3",
       },
       "devDependencies": {
-        "@biomejs/biome": "latest",
-        "bumpp": "latest",
-        "bunup": "latest",
-        "lefthook": "latest",
-        "lightningcss": "latest",
-        "typescript": "latest",
-        "ultracite": "latest",
+        "@biomejs/biome": "^2.2.5",
+        "bumpp": "^10.3.1",
+        "bunup": "^0.14.20",
+        "lefthook": "^1.13.6",
+        "lightningcss": "^1.30.2",
+        "typescript": "^5.9.3",
+        "ultracite": "^5.6.2",
       },
     },
     "apps/web": {
       "name": "web",
       "version": "0.1.0",
       "dependencies": {
+        "@react-lib/core": "workspace:*",
+        "@react-lib/search-query-provider": "workspace:*",
         "next": "15.5.4",
         "react": "catalog:",
         "react-dom": "catalog:",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
-        "@tailwindcss/postcss": "^4",
+        "@tailwindcss/postcss": "^4.1.14",
         "@types/node": "^22",
         "@types/react": "catalog:types",
         "@types/react-dom": "catalog:types",
-        "tailwindcss": "^4",
+        "tailwindcss": "^4.1.14",
         "typescript": "catalog:",
       },
     },
@@ -56,8 +60,8 @@
         "typescript",
       ],
     },
-    "packages/search-query": {
-      "name": "@react-lib/search-query",
+    "packages/search-query-provider": {
+      "name": "@react-lib/search-query-provider",
       "version": "0.0.1",
       "devDependencies": {
         "@types/lodash": "catalog:types",
@@ -309,7 +313,7 @@
 
     "@react-lib/core": ["@react-lib/core@workspace:packages/core"],
 
-    "@react-lib/search-query": ["@react-lib/search-query@workspace:packages/search-query"],
+    "@react-lib/search-query-provider": ["@react-lib/search-query-provider@workspace:packages/search-query-provider"],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
 
@@ -342,6 +346,10 @@
     "@tailwindcss/oxide-win32-x64-msvc": ["@tailwindcss/oxide-win32-x64-msvc@4.1.14", "", { "os": "win32", "cpu": "x64" }, "sha512-ttblVGHgf68kEE4om1n/n44I0yGPkCPbLsqzjvybhpwa6mKKtgFfAzy6btc3HRmuW7nHe0OOrSeNP9sQmmH9XA=="],
 
     "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.14", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.14", "@tailwindcss/oxide": "4.1.14", "postcss": "^8.4.41", "tailwindcss": "4.1.14" } }, "sha512-BdMjIxy7HUNThK87C7BC8I1rE8BVUsfNQSI5siQ4JK3iIa3w0XyVvVL9SXLWO//CtYTcp1v7zci0fYwJOjB+Zg=="],
+
+    "@tanstack/query-core": ["@tanstack/query-core@5.90.2", "", {}, "sha512-k/TcR3YalnzibscALLwxeiLUub6jN5EDLwKDiO7q5f4ICEoptJ+n9+7vcEFy5/x/i6Q+Lb/tXrsKCggf5uQJXQ=="],
+
+    "@tanstack/react-query": ["@tanstack/react-query@5.90.2", "", { "dependencies": { "@tanstack/query-core": "5.90.2" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-CLABiR+h5PYfOWr/z+vWFt5VsOA2ekQeRQBFSKlcoW6Ndx/f8rfyVmq4LbgOM4GG2qtxAxjLYLOpCNTYm4uKzw=="],
 
     "@trpc/server": ["@trpc/server@11.6.0", "", { "peerDependencies": { "typescript": ">=5.7.2" } }, "sha512-skTso0AWbOZck40jwNeYv++AMZXNWLUWdyk+pB5iVaYmEKTuEeMoPrEudR12VafbEU6tZa8HK3QhBfTYYHDCdg=="],
 
