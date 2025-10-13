@@ -1,5 +1,5 @@
+import type { IBaseSearchQuery } from "@react-lib/core";
 import { z } from "zod";
-import {IBaseSearchQuery} from "@react-lib/core";
 
 export const ProductSchema = z.object({
 	id: z.number().int().positive(),
@@ -17,7 +17,7 @@ export const ProductSchema = z.object({
 
 export type Product = z.infer<typeof ProductSchema>;
 
-export type ProductsQuery = Omit<IBaseSearchQuery, 'sortBy'> & {
-	category?: string,
-	sortBy?: "price" |"rating" |"discountPercentage" |"title",
+export type ProductsQuery = Omit<IBaseSearchQuery, "sortBy"> & {
+	category?: string;
+	sortBy?: "price" | "rating" | "discountPercentage" | "title";
 };

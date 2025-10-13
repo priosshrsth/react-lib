@@ -4,7 +4,6 @@ import "@react-lib/core/table/styles/table.css";
 import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
 import type { ColumnDefinition, RowData } from "@react-lib/core/table/types/type";
 import type { ReactNode } from "react";
-import { Pagination } from "./pagination";
 
 type ClassNames = {
   theadClassName?: string;
@@ -14,8 +13,7 @@ type ClassNames = {
   trClassName?: string;
   thClassName?: string;
   tdClassName?: string;
-	cellClassName?: string;
-  footerClassName?: string;
+  cellClassName?: string;
   className?: string;
 };
 
@@ -42,10 +40,9 @@ export function Table<TData extends RowData>({
   headRowClassName,
   bodyRowClassName,
   trClassName,
-	cellClassName,
+  cellClassName,
   thClassName,
   tdClassName,
-  footerClassName,
   isLoading,
   onSortBy,
 }: DataTableProps<TData>): ReactNode {

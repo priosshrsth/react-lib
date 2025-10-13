@@ -1,9 +1,8 @@
 "use client";
 
 import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
-import type { ReactNode } from "react";
 import clsx from "clsx";
-
+import type { ReactNode } from "react";
 
 const MAX_PAGES_TO_SHOW_ALL_PAGES = 7;
 const MIN_PAGE_TO_SHOW_ELLIPSIS = 3;
@@ -17,13 +16,11 @@ type PageBtnProps = {
 };
 
 function PageBtn({ num, isActive, onClick, pageBtnClassName, activePageBtnClassName }: PageBtnProps) {
-  const className = [pageBtnClassName, isActive ? activePageBtnClassName : undefined]
-    .filter(Boolean)
-    .join(" ");
+  const className = [pageBtnClassName, isActive ? activePageBtnClassName : undefined].filter(Boolean).join(" ");
   return (
     <button
       aria-current={isActive ? "page" : undefined}
-      className={clsx('pagination-button', className)}
+      className={clsx("pagination-button", className)}
       key={num}
       onClick={() => onClick(num)}
       type="button"
@@ -34,7 +31,9 @@ function PageBtn({ num, isActive, onClick, pageBtnClassName, activePageBtnClassN
 }
 
 const makeEllipsis = (keyId: string, className?: string) => (
-  <span className={className || undefined} key={keyId}>…</span>
+  <span className={className || undefined} key={keyId}>
+    …
+  </span>
 );
 
 export type PaginationProps = {
@@ -93,12 +92,12 @@ export function Pagination({
   const addPage = (list: ReactNode[], n: number) =>
     list.push(
       <PageBtn
+        activePageBtnClassName={activePageButtonClassName}
         isActive={page === n}
         key={n}
         num={n}
         onClick={onJump}
         pageBtnClassName={pageButtonClassName}
-        activePageBtnClassName={activePageButtonClassName}
       />
     );
 
@@ -156,16 +155,16 @@ export function Pagination({
   };
 
   return (
-    <div className={clsx('react-lib-pagination', containerClassName)}>
-      <div className={clsx('summary', resultsWrapperClassName)}>
+    <div className={clsx("react-lib-pagination", containerClassName)}>
+      <div className={clsx("summary", resultsWrapperClassName)}>
         <span>
           Showing {total > 0 ? startItem : 0}-{endItem} of {total} results
         </span>
       </div>
 
-      <div className={'pagination-buttons'}>
+      <div className={"pagination-buttons"}>
         <button
-					className={clsx('pagination-button', navButtonClassName)}
+          className={clsx("pagination-button", navButtonClassName)}
           disabled={page <= 1}
           onClick={handlePrevious}
           type="button"
@@ -176,7 +175,7 @@ export function Pagination({
         <div className={pageNumbersWrapperClassName}>{renderPageNumbers()}</div>
 
         <button
-          className={clsx('pagination-button', navButtonClassName)}
+          className={clsx("pagination-button", navButtonClassName)}
           disabled={page >= totalPages}
           onClick={handleNext}
           type="button"
