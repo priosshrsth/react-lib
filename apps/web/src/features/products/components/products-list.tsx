@@ -6,7 +6,7 @@ import {
 	Pagination,
 	Table,
 	useSearchQuery,
-} from "rnt-lib";
+} from "rnt-lib/core";
 
 import { useProductsQuery } from "src/features/products/hooks/use-products-query";
 import type { ProductsQuery } from "src/features/products/schemas/product.schema";
