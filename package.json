@@ -1,5 +1,5 @@
 {
-  "name": "rntlib",
+  "name": "@anitshrsth/rnt-lib",
   "description": "A react component library",
   "version": "0.0.1-alpha.1",
   "type": "module",

@@ -1,10 +1,12 @@
 pre-commit:
   commands:
     check:
-      run: bun run lint:fix --write --no-errors-on-unmatched --colors=off --staged
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
+      run: bun run lint:fix
       stage_fixed: true
 
 pre-push:
   commands:
     check:
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: bun run tsc

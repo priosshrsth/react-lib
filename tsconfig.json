@@ -13,6 +13,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
+      "rnt-lib": ["./packages/core"],
       "rnt-lib/*": ["./packages/core/*"]
     },
     "strictNullChecks": true
