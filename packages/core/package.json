@@ -7,6 +7,12 @@
     "dist"
   ],
   "exports": {
+    "./packages/core": {
+      "import": {
+        "types": "./dist/packages/core/index.d.ts",
+        "default": "./dist/packages/core/index.js"
+      }
+    },
     "./packages/core/table": {
       "import": {
         "types": "./dist/packages/core/table/index.d.ts",
@@ -49,6 +55,12 @@
         "default": "./dist/packages/core/search-query/types/index.js"
       }
     },
+    "./packages/core/search-query/types/search-query-context": {
+      "import": {
+        "types": "./dist/packages/core/search-query/types/search-query-context.types.d.ts",
+        "default": "./dist/packages/core/search-query/types/search-query-context.types.js"
+      }
+    },
     "./packages/core/search-query/contexts": {
       "import": {
         "types": "./dist/packages/core/search-query/contexts/index.d.ts",
@@ -85,12 +97,7 @@
         "default": "./dist/packages/core/search-query/contexts/use-search-query.js"
       }
     },
-    "./packages/core/search-query/types/search-query-context": {
-      "import": {
-        "types": "./dist/packages/core/search-query/types/search-query-context.types.d.ts",
-        "default": "./dist/packages/core/search-query/types/search-query-context.types.js"
-      }
-    },
+    "./packages/core.css": "./dist/packages/core/index.css",
     "./packages/core/table.css": "./dist/packages/core/table/index.css",
     "./packages/core/table/components/table.css": "./dist/packages/core/table/components/table.css",
     "./package.json": "./package.json"

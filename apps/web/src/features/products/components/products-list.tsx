@@ -66,7 +66,7 @@ export function ProductsList() {
 					placeholder="Search products…"
 					className="w-full max-w-96 rounded-md border border-border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
 					onChange={handleSearch}
-					value={searchQuery.search ?? ""}
+					defaultValue={searchQuery.search ?? ""}
 				/>
 			</form>
 
