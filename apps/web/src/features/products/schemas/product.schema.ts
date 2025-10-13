@@ -1,5 +1,5 @@
-import { createBaseSearchQuerySchema } from "@react-lib/search-query-provider/schemas";
 import { z } from "zod";
+import {IBaseSearchQuery} from "@react-lib/core";
 
 export const ProductSchema = z.object({
 	id: z.number().int().positive(),
@@ -17,11 +17,7 @@ export const ProductSchema = z.object({
 
 export type Product = z.infer<typeof ProductSchema>;
 
-export const ProductsQuerySchema = createBaseSearchQuerySchema({
-	defaultLimit: 12,
-}).extend({
-	category: z.string().trim().min(1).optional(),
-	sortBy: z.enum(["price", "rating", "discountPercentage", "title"]).optional(),
-});
-
-export type ProductsQuery = z.infer<typeof ProductsQuerySchema>;
+export type ProductsQuery = Omit<IBaseSearchQuery, 'sortBy'> & {
+	category?: string,
+	sortBy?: "price" |"rating" |"discountPercentage" |"title",
+};

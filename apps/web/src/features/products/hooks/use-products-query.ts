@@ -21,7 +21,7 @@ function buildUrl(query: ProductsQuery): string {
 
 	const params = new URLSearchParams();
 	if (hasSearch) {
-		params.set("q", parsed.search.trim());
+		params.set("q", parsed.search?.trim() ?? '');
 	}
 	params.set("limit", String(limit));
 	if (skip) {

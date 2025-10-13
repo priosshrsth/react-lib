@@ -9,7 +9,6 @@
 		"tsc": "tsc --noemit"
 	},
 	"dependencies": {
-		"@react-lib/search-query-provider": "workspace:*",
 		"@react-lib/core": "workspace:*",
 		"next": "15.5.4",
 		"react": "catalog:",
