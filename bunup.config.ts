@@ -3,7 +3,7 @@ import { type DefineWorkspaceItem, defineWorkspace } from "bunup";
 const config: DefineWorkspaceItem[] = defineWorkspace(
   [
     {
-      name: "@rnt-lib/core/",
+      name: "rnt-lib/core/",
       root: "packages/core",
       config: {
         entry: ["**/*.ts", "**/*.tsx", "!dist"],

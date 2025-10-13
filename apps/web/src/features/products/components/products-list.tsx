@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchQuery } from "@rnt-lib/core//search-query/contexts/use-search-query";
+import { useSearchQuery } from "rnt-lib/core//search-query/contexts/use-search-query";
 import {
 	type ColumnDefinition,
 	Pagination,
