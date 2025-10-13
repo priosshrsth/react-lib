@@ -5,7 +5,7 @@ A react component library
 ## Installation
 
 ```bash
-bun add @react-lib
+bun add @anitshrsth/react-lib
 ```
 
 ## Usage

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
+import { useSearchQuery } from "@react-lib/core/src/search-query/contexts/use-search-query";
 import clsx from "clsx";
 import type { ReactNode } from "react";
 

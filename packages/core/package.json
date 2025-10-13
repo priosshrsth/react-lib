@@ -7,99 +7,99 @@
     "dist"
   ],
   "exports": {
-    "./packages/core": {
+    "./packages/core/src": {
       "import": {
-        "types": "./dist/packages/core/index.d.ts",
-        "default": "./dist/packages/core/index.js"
+        "types": "./dist/packages/core/src/index.d.ts",
+        "default": "./dist/packages/core/src/index.js"
       }
     },
-    "./packages/core/table": {
+    "./packages/core/src/table": {
       "import": {
-        "types": "./dist/packages/core/table/index.d.ts",
-        "default": "./dist/packages/core/table/index.js"
+        "types": "./dist/packages/core/src/table/index.d.ts",
+        "default": "./dist/packages/core/src/table/index.js"
       }
     },
-    "./packages/core/table/components/pagination": {
+    "./packages/core/src/table/components/pagination": {
       "import": {
-        "types": "./dist/packages/core/table/components/pagination.d.ts",
-        "default": "./dist/packages/core/table/components/pagination.js"
+        "types": "./dist/packages/core/src/table/components/pagination.d.ts",
+        "default": "./dist/packages/core/src/table/components/pagination.js"
       }
     },
-    "./packages/core/table/components/table": {
+    "./packages/core/src/table/components/table": {
       "import": {
-        "types": "./dist/packages/core/table/components/table.d.ts",
-        "default": "./dist/packages/core/table/components/table.js"
+        "types": "./dist/packages/core/src/table/components/table.d.ts",
+        "default": "./dist/packages/core/src/table/components/table.js"
       }
     },
-    "./packages/core/table/styles/default": {
+    "./packages/core/src/table/styles/default": {
       "import": {
-        "types": "./dist/packages/core/table/styles/default.datatable.styles.d.ts",
-        "default": "./dist/packages/core/table/styles/default.datatable.styles.js"
+        "types": "./dist/packages/core/src/table/styles/default.datatable.styles.d.ts",
+        "default": "./dist/packages/core/src/table/styles/default.datatable.styles.js"
       }
     },
-    "./packages/core/table/types/type": {
+    "./packages/core/src/table/types/type": {
       "import": {
-        "types": "./dist/packages/core/table/types/type.d.ts",
-        "default": "./dist/packages/core/table/types/type.js"
+        "types": "./dist/packages/core/src/table/types/type.d.ts",
+        "default": "./dist/packages/core/src/table/types/type.js"
       }
     },
-    "./packages/core/search-query": {
+    "./packages/core/src/search-query": {
       "import": {
-        "types": "./dist/packages/core/search-query/index.d.ts",
-        "default": "./dist/packages/core/search-query/index.js"
+        "types": "./dist/packages/core/src/search-query/index.d.ts",
+        "default": "./dist/packages/core/src/search-query/index.js"
       }
     },
-    "./packages/core/search-query/types": {
+    "./packages/core/src/search-query/types": {
       "import": {
-        "types": "./dist/packages/core/search-query/types/index.d.ts",
-        "default": "./dist/packages/core/search-query/types/index.js"
+        "types": "./dist/packages/core/src/search-query/types/index.d.ts",
+        "default": "./dist/packages/core/src/search-query/types/index.js"
       }
     },
-    "./packages/core/search-query/types/search-query-context": {
+    "./packages/core/src/search-query/types/search-query-context": {
       "import": {
-        "types": "./dist/packages/core/search-query/types/search-query-context.types.d.ts",
-        "default": "./dist/packages/core/search-query/types/search-query-context.types.js"
+        "types": "./dist/packages/core/src/search-query/types/search-query-context.types.d.ts",
+        "default": "./dist/packages/core/src/search-query/types/search-query-context.types.js"
       }
     },
-    "./packages/core/search-query/contexts": {
+    "./packages/core/src/search-query/contexts": {
       "import": {
-        "types": "./dist/packages/core/search-query/contexts/index.d.ts",
-        "default": "./dist/packages/core/search-query/contexts/index.js"
+        "types": "./dist/packages/core/src/search-query/contexts/index.d.ts",
+        "default": "./dist/packages/core/src/search-query/contexts/index.js"
       }
     },
-    "./packages/core/search-query/contexts/search-query": {
+    "./packages/core/src/search-query/contexts/search-query": {
       "import": {
-        "types": "./dist/packages/core/search-query/contexts/search-query.provider.d.ts",
-        "default": "./dist/packages/core/search-query/contexts/search-query.context.js"
+        "types": "./dist/packages/core/src/search-query/contexts/search-query.provider.d.ts",
+        "default": "./dist/packages/core/src/search-query/contexts/search-query.context.js"
       }
     },
-    "./packages/core/set-search-params": {
+    "./packages/core/src/set-search-params": {
       "import": {
-        "types": "./dist/packages/core/set-search-params/index.d.ts",
-        "default": "./dist/packages/core/set-search-params/index.js"
+        "types": "./dist/packages/core/src/set-search-params/index.d.ts",
+        "default": "./dist/packages/core/src/set-search-params/index.js"
       }
     },
-    "./packages/core/lazy-search": {
+    "./packages/core/src/lazy-search": {
       "import": {
-        "types": "./dist/packages/core/lazy-search/index.d.ts",
-        "default": "./dist/packages/core/lazy-search/index.js"
+        "types": "./dist/packages/core/src/lazy-search/index.d.ts",
+        "default": "./dist/packages/core/src/lazy-search/index.js"
       }
     },
-    "./packages/core/lazy-search/hooks/use-lazy-search": {
+    "./packages/core/src/lazy-search/hooks/use-lazy-search": {
       "import": {
-        "types": "./dist/packages/core/lazy-search/hooks/use-lazy-search.d.ts",
-        "default": "./dist/packages/core/lazy-search/hooks/use-lazy-search.js"
+        "types": "./dist/packages/core/src/lazy-search/hooks/use-lazy-search.d.ts",
+        "default": "./dist/packages/core/src/lazy-search/hooks/use-lazy-search.js"
       }
     },
-    "./packages/core/search-query/contexts/use-search-query": {
+    "./packages/core/src/search-query/contexts/use-search-query": {
       "import": {
-        "types": "./dist/packages/core/search-query/contexts/use-search-query.d.ts",
-        "default": "./dist/packages/core/search-query/contexts/use-search-query.js"
+        "types": "./dist/packages/core/src/search-query/contexts/use-search-query.d.ts",
+        "default": "./dist/packages/core/src/search-query/contexts/use-search-query.js"
       }
     },
-    "./packages/core.css": "./dist/packages/core/index.css",
-    "./packages/core/table.css": "./dist/packages/core/table/index.css",
-    "./packages/core/table/components/table.css": "./dist/packages/core/table/components/table.css",
+    "./packages/core/src.css": "./dist/packages/core/src/index.css",
+    "./packages/core/src/table.css": "./dist/packages/core/src/table/index.css",
+    "./packages/core/src/table/components/table.css": "./dist/packages/core/src/table/components/table.css",
     "./package.json": "./package.json"
   },
   "scripts": {

@@ -1,4 +1,4 @@
-import { SearchQueryProvider } from "@react-lib/core/search-query/contexts/search-query.provider";
+import { SearchQueryProvider } from "@react-lib/core/src/search-query/contexts/search-query.provider";
 import { ProductsList } from "src/features/products/components/products-list";
 
 export default async function DataTablePage(props: {
