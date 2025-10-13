@@ -14,6 +14,7 @@ type ClassNames = {
   trClassName?: string;
   thClassName?: string;
   tdClassName?: string;
+	cellClassName?: string;
   footerClassName?: string;
   className?: string;
 };
@@ -23,7 +24,6 @@ export type TableProps = ClassNames & {
   loading?: boolean;
   onSortBy?: (sortBy: string) => void;
   children?: ReactNode;
-  showPagination?: boolean;
   isLoading: boolean;
 };
 
@@ -42,12 +42,12 @@ export function Table<TData extends RowData>({
   headRowClassName,
   bodyRowClassName,
   trClassName,
+	cellClassName,
   thClassName,
   tdClassName,
   footerClassName,
   isLoading,
   onSortBy,
-  showPagination,
 }: DataTableProps<TData>): ReactNode {
   const {
     searchQuery: { page, limit },
@@ -59,7 +59,7 @@ export function Table<TData extends RowData>({
           {columns.map((column, index) => {
             return (
               <th
-                className={clsx(thClassName, column.columnClassName, column.thClassName)}
+                className={clsx(cellClassName, thClassName, column.columnClassName, column.thClassName)}
                 key={`${column.accessor}-${index}`}
                 onClick={column.isSortable ? () => onSortBy?.(column.accessor) : undefined}
               >
@@ -93,7 +93,7 @@ export function Table<TData extends RowData>({
           <tr className={clsx(trClassName, bodyRowClassName)} key={"id" in row ? (row.id as string) : rowIndex}>
             {columns.map((column, colIndex) => (
               <td
-                className={clsx(tdClassName, column.columnClassName, column.tdClassName)}
+                className={clsx(cellClassName, tdClassName, column.columnClassName, column.tdClassName)}
                 key={`${column.accessor}-${colIndex}`}
               >
                 <div className={clsx(column.cellContentWrapperClassName)}>
@@ -109,17 +109,6 @@ export function Table<TData extends RowData>({
           </tr>
         ))}
       </tbody>
-      {!!showPagination && (
-        <tfoot className={footerClassName}>
-          <tr className={clsx(trClassName)}>
-            <td colSpan={columns.length}>
-              <div className={"pagination-wrapper"}>
-                <Pagination />
-              </div>
-            </td>
-          </tr>
-        </tfoot>
-      )}
     </table>
   );
 }

@@ -1,17 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import {
-	type ProductsQuery,
-	ProductsQuerySchema,
-} from "src/features/products/schemas/product.schema";
+import type { ProductsQuery } from "src/features/products/schemas/product.schema";
 import type { ProductsResponse } from "src/features/products/types/product.response";
 
 const BASE_URL = "https://dummyjson.com";
 
 function buildUrl(query: ProductsQuery): string {
-	const parsed = ProductsQuerySchema.parse(query);
+	const parsed = query ?? {};
 
 	// Map your schema -> DummyJSON params
-	const hasSearch = parsed.search.trim().length > 0;
+	const hasSearch = (parsed.search ?? "").trim().length > 0;
 	const limit = parsed.limit;
 	const page = parsed.page;
 	const skip = Math.max(0, (page - 1) * limit);
@@ -43,7 +40,11 @@ function buildUrl(query: ProductsQuery): string {
 
 async function fetchProducts(query: ProductsQuery): Promise<ProductsResponse> {
 	const url = buildUrl(query);
-	const res = await fetch(url, { headers: { Accept: "application/json" } });
+	console.clear();
+	console.log({ url });
+	const res = await fetch(url, {
+		headers: { Accept: "application/json" },
+	});
 	if (!res.ok) {
 		const text = await res.text().catch(() => "");
 		throw new Error(
@@ -54,10 +55,10 @@ async function fetchProducts(query: ProductsQuery): Promise<ProductsResponse> {
 }
 
 export function useProductsQuery(query: ProductsQuery) {
-	const parsed = ProductsQuerySchema.parse(query);
+	const parsed = query;
 	const stableKey = {
 		category: parsed.category ?? null,
-		search: parsed.search.trim() ?? null,
+		search: (parsed.search ?? "").trim() ?? null,
 		page: parsed.page ?? 1,
 		limit: parsed.limit ?? 12,
 		sortBy: parsed.sortBy ?? null,
@@ -67,5 +68,6 @@ export function useProductsQuery(query: ProductsQuery) {
 	return useQuery({
 		queryKey: ["products-list", stableKey],
 		queryFn: () => fetchProducts(parsed),
+		enabled: true,
 	});
 }

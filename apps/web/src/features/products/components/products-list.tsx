@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
-import { type ColumnDefinition, Table } from "@react-lib/core/table";
+import {type ColumnDefinition, Pagination, Table} from "@react-lib/core/table";
 import { useEffect } from "react";
 import { useProductsQuery } from "src/features/products/hooks/use-products-query";
 import type { ProductsQuery } from "src/features/products/schemas/product.schema";
@@ -53,7 +53,7 @@ export function ProductsList() {
 	}, [productsQuery.data?.total, setTotal]);
 
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-4 w-full">
 			<form
 				className="flex items-center gap-2"
 				onSubmit={(e) => {
@@ -71,10 +71,21 @@ export function ProductsList() {
 			</form>
 
 			<Table
+				className={'border border-neutral-200'}
+				theadClassName={'bg-gray-600 text-black'}
+				cellClassName={'border-r border-neutral-200'}
+				headRowClassName={'border-b-gray-200 border-b'}
+				bodyRowClassName={'border-t-gray-200 border-b'}
 				isLoading={productsQuery.isLoading}
 				data={productsQuery.data?.products ?? []}
 				columns={columns}
 			/>
+
+      <Pagination
+				activePageButtonClassName={'font-bold text-green-600'}
+        prevLabel="<"
+        nextLabel=">"
+      />
 		</div>
 	);
 }

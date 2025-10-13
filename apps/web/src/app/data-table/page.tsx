@@ -1,17 +1,20 @@
-import { SearchQueryProvider } from "@react-lib/search-query-provider/contexts";
 import { ProductsList } from "src/features/products/components/products-list";
-import { ProductsQuerySchema } from "src/features/products/schemas/product.schema";
+import {SearchQueryProvider} from "@react-lib/core/search-query/contexts/search-query.provider";
+
 
 export default async function DataTablePage(props: {
 	searchParams: Promise<Record<string, unknown>>;
 }) {
 	const searchParams = await props.searchParams;
 	return (
-		<SearchQueryProvider
-			initialSearchParams={searchParams}
-			schema={ProductsQuerySchema}
-		>
-			<ProductsList />
-		</SearchQueryProvider>
+		<div className={'p-20'}>
+			<SearchQueryProvider
+				syncWithUrl={true}
+				initialSearchParams={searchParams}
+				defaultValues={{ limit: 12, page: 1, category: "", search: "" }}
+			>
+				<ProductsList />
+			</SearchQueryProvider>
+		</div>
 	);
 }

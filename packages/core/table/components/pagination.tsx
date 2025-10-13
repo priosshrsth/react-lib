@@ -2,8 +2,8 @@
 
 import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
 import type { ReactNode } from "react";
+import clsx from "clsx";
 
-const PAGE_BTN_CLASS = "h-9 w-9 p-0 transition-colors";
 
 const MAX_PAGES_TO_SHOW_ALL_PAGES = 7;
 const MIN_PAGE_TO_SHOW_ELLIPSIS = 3;
@@ -12,13 +12,18 @@ type PageBtnProps = {
   num: number;
   isActive: boolean;
   onClick: (n: number) => void;
+  pageBtnClassName?: string;
+  activePageBtnClassName?: string;
 };
 
-function PageBtn({ num, isActive, onClick }: PageBtnProps) {
+function PageBtn({ num, isActive, onClick, pageBtnClassName, activePageBtnClassName }: PageBtnProps) {
+  const className = [pageBtnClassName, isActive ? activePageBtnClassName : undefined]
+    .filter(Boolean)
+    .join(" ");
   return (
     <button
       aria-current={isActive ? "page" : undefined}
-      className={`${PAGE_BTN_CLASS} ${isActive ? "rounded-md border border-border font-medium" : ""}`}
+      className={clsx('pagination-button', className)}
       key={num}
       onClick={() => onClick(num)}
       type="button"
@@ -28,13 +33,33 @@ function PageBtn({ num, isActive, onClick }: PageBtnProps) {
   );
 }
 
-const makeEllipsis = (keyId: string) => (
-  <span className="px-2 text-muted-foreground" key={keyId}>
-    …
-  </span>
+const makeEllipsis = (keyId: string, className?: string) => (
+  <span className={className || undefined} key={keyId}>…</span>
 );
 
-export function Pagination(): ReactNode {
+export type PaginationProps = {
+  containerClassName?: string;
+  resultsWrapperClassName?: string;
+  pageNumbersWrapperClassName?: string;
+  navButtonClassName?: string;
+  pageButtonClassName?: string;
+  activePageButtonClassName?: string;
+  ellipsisClassName?: string;
+  prevLabel?: ReactNode;
+  nextLabel?: ReactNode;
+};
+
+export function Pagination({
+  containerClassName,
+  resultsWrapperClassName,
+  pageNumbersWrapperClassName,
+  navButtonClassName,
+  pageButtonClassName,
+  activePageButtonClassName,
+  ellipsisClassName,
+  prevLabel = "<",
+  nextLabel = ">",
+}: PaginationProps): ReactNode {
   const {
     searchQuery: { page, limit },
     total,
@@ -66,7 +91,16 @@ export function Pagination(): ReactNode {
 
   // Helpers to keep renderPageNumbers simple and under complexity limits
   const addPage = (list: ReactNode[], n: number) =>
-    list.push(<PageBtn isActive={page === n} key={n} num={n} onClick={onJump} />);
+    list.push(
+      <PageBtn
+        isActive={page === n}
+        key={n}
+        num={n}
+        onClick={onJump}
+        pageBtnClassName={pageButtonClassName}
+        activePageBtnClassName={activePageButtonClassName}
+      />
+    );
 
   const addRange = (list: ReactNode[], start: number, end: number) => {
     for (let i = start; i <= end; i++) {
@@ -88,7 +122,7 @@ export function Pagination(): ReactNode {
 
     // Left ellipsis
     if (page > MIN_PAGE_TO_SHOW_ELLIPSIS) {
-      list.push(makeEllipsis("ellipsis-left"));
+      list.push(makeEllipsis("ellipsis-left", ellipsisClassName));
     }
 
     // Middle window (neighbors)
@@ -97,7 +131,7 @@ export function Pagination(): ReactNode {
 
     // Right ellipsis
     if (page < totalPages - 2) {
-      list.push(makeEllipsis("ellipsis-right"));
+      list.push(makeEllipsis("ellipsis-right", ellipsisClassName));
     }
 
     // Always show last (if more than one page)
@@ -122,32 +156,32 @@ export function Pagination(): ReactNode {
   };
 
   return (
-    <div className="flex items-center justify-between border-border/50 border-t bg-background/50 px-6 py-4 backdrop-blur-sm">
-      <div className="flex items-center gap-2 text-muted-foreground text-sm">
-        <span className="font-medium">
+    <div className={clsx('react-lib-pagination', containerClassName)}>
+      <div className={clsx('summary', resultsWrapperClassName)}>
+        <span>
           Showing {total > 0 ? startItem : 0}-{endItem} of {total} results
         </span>
       </div>
 
-      <div className="flex items-center gap-1">
+      <div className={'pagination-buttons'}>
         <button
-          className="bg-transparent transition-colors hover:bg-muted/50 disabled:opacity-60"
+					className={clsx('pagination-button', navButtonClassName)}
           disabled={page <= 1}
           onClick={handlePrevious}
-          type={"button"}
+          type="button"
         >
-          {"<"}
+          {prevLabel}
         </button>
 
-        <div className="mx-2 flex items-center gap-1">{renderPageNumbers()}</div>
+        <div className={pageNumbersWrapperClassName}>{renderPageNumbers()}</div>
 
         <button
-          className="bg-transparent transition-colors hover:bg-muted/50 disabled:opacity-60"
+          className={clsx('pagination-button', navButtonClassName)}
           disabled={page >= totalPages}
           onClick={handleNext}
-          type={"button"}
+          type="button"
         >
-          {">"}
+          {nextLabel}
         </button>
       </div>
     </div>

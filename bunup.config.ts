@@ -6,14 +6,7 @@ const config: DefineWorkspaceItem[] = defineWorkspace(
       name: "@react-lib/core",
       root: "packages/core",
       config: {
-        entry: ["*/index.ts"],
-      },
-    },
-    {
-      name: "@react-lib/search-query-provider",
-      root: "packages/search-query-provider",
-      config: {
-        entry: ["*/index.ts"],
+        entry: ["**/*.ts", "**/*.tsx"],
       },
     },
   ],
