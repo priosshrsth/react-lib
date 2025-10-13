@@ -29,7 +29,41 @@ jobs:
                     continue-on-error: true
                     env:
                           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-                  - run: bun publish --access public --no-git-checks
+
+                  - name: Configure npm auth
+                    run: |
+                          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+                          npm config set provenance true
                     env:
-                          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
-                          NPM_CONFIG_PROVENANCE: true
+                          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+                  - name: Publish all packages/*
+                    shell: bash
+                    env:
+                          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                    run: |
+                          set -euo pipefail
+                          echo "Publishing workspaces in packages/*"
+                          for pkg in packages/*; do
+                            if [ -f "$pkg/package.json" ]; then
+                              # Skip private packages
+                              if jq -e '.private == true' "$pkg/package.json" >/dev/null 2>&1; then
+                                echo "Skipping private package: $pkg"
+                                continue
+                              fi
+
+                              name=$(jq -r '.name' "$pkg/package.json")
+                              version=$(jq -r '.version' "$pkg/package.json")
+                              echo "\n→ Publishing $name@$version from $pkg"
+
+                              # Prefer publishConfig.directory if set (e.g. to publish ./dist)
+                              publish_dir=$(jq -r '.publishConfig.directory // empty' "$pkg/package.json" || true)
+                              if [ -n "$publish_dir" ]; then
+                                echo "Using publishConfig.directory: $publish_dir"
+                                npm publish "$pkg/$publish_dir" --access public --provenance || true
+                              else
+                                # Otherwise publish from the package root (ensure your package.json uses `files` or .npmignore)
+                                npm publish "$pkg" --access public --provenance || true
+                              fi
+                            fi
+                          done

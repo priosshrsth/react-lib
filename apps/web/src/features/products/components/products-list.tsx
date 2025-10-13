@@ -1,11 +1,11 @@
 "use client";
 
-import { useSearchQuery } from "@react-lib/core/src/search-query/contexts/use-search-query";
+import { useSearchQuery } from "@rnt-lib/core//search-query/contexts/use-search-query";
 import {
 	type ColumnDefinition,
 	Pagination,
 	Table,
-} from "@react-lib/core/table";
+} from "../../../../../../packages/core/table";
 import { useEffect } from "react";
 import { useProductsQuery } from "src/features/products/hooks/use-products-query";
 import type { ProductsQuery } from "src/features/products/schemas/product.schema";

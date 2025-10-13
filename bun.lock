@@ -22,7 +22,7 @@
       "name": "web",
       "version": "0.1.0",
       "dependencies": {
-        "@react-lib/core": "workspace:*",
+        "@rnt-lib/core/": "workspace:*",
         "next": "15.5.4",
         "react": "catalog:",
         "react-dom": "catalog:",
@@ -38,7 +38,7 @@
       },
     },
     "packages/core": {
-      "name": "@react-lib/core",
+      "name": "@rnt-lib/core/",
       "version": "0.0.1",
       "devDependencies": {
         "@types/lodash": "catalog:types",
@@ -285,7 +285,7 @@
 
     "@oxc-transform/binding-win32-x64-msvc": ["@oxc-transform/binding-win32-x64-msvc@0.67.0", "", { "os": "win32", "cpu": "x64" }, "sha512-3pIIFb9g5aFrAODTQVJYitq+ONHgDJ4IYk/7pk+jsG6JpKUkURd0auUlxvriO11fFit5hdwy+wIbU4kBvyRUkg=="],
 
-    "@react-lib/core": ["@react-lib/core@workspace:packages/core"],
+    "@rnt-lib/core/": ["@rnt-lib/core/@workspace:packages/core"],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
 

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 
-import "@react-lib/core/src/table/styles/table.css";
-import { useSearchQuery } from "@react-lib/core/src/search-query/contexts/use-search-query";
-import type { ColumnDefinition, RowData } from "@react-lib/core/src/table/types/type";
+import "../styles/table.css";
+import { useSearchQuery } from "../../search-query/contexts/use-search-query";
+import type { ColumnDefinition, RowData } from "../types/type";
 import type { ReactNode } from "react";
 
 type ClassNames = {
