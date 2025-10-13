@@ -1,0 +1,10 @@
+pre-commit:
+  commands:
+    check:
+      run: bun run lint:fix --write --no-errors-on-unmatched --colors=off --staged
+      stage_fixed: true
+
+pre-push:
+  commands:
+    check:
+      run: bun run tsc
