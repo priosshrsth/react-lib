@@ -30,3 +30,6 @@ bunup.config.ts
 .gitattributes
 .npmignore
 tsconfig.json
+packages/*
+!packages/*/.package.json
+!pacakges/*/dist

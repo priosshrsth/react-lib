@@ -3,16 +3,18 @@ import { type DefineWorkspaceItem, defineWorkspace } from "bunup";
 const config: DefineWorkspaceItem[] = defineWorkspace(
   [
     {
-      name: "@react-lib/core",
+      name: "rnt-lib",
       root: "packages/core",
       config: {
-        entry: ["**/*.ts", "**/*.tsx"],
+        entry: ["**/*.ts", "**/*.tsx", "!dist"],
       },
     },
   ],
   {
     format: ["esm"],
-    exports: true,
+    exports: {
+      all: false,
+    },
     unused: true,
     drop: ["console", "debugger"],
     target: "bun",

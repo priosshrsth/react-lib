@@ -1,11 +1,11 @@
 "use client";
 
-import { useLazySearch } from "@react-lib/core/src/lazy-search";
-import { SearchQueryContext } from "@react-lib/core/src/search-query/contexts/search-query.context";
-import type { IBaseSearchQuery } from "@react-lib/core/src/search-query/types";
-import { setSearchParams } from "@react-lib/core/src/set-search-params";
 import { isEqual } from "lodash";
 import { type ReactNode, useCallback, useEffect, useState, useTransition } from "react";
+import { useLazySearch } from "../../lazy-search";
+import { setSearchParams } from "../../set-search-params";
+import type { IBaseSearchQuery } from "../types";
+import { SearchQueryContext } from "./search-query.context";
 
 type ProviderProps<T extends Record<string, unknown>> = {
   defaultValues?: T;

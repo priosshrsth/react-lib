@@ -21,7 +21,8 @@
 		],
 		"paths": {
 			"src/*": ["./src/*"],
-			"@react-lib/*": ["../../packages/*"]
+			"rnt-lib": ["../../packages/core"],
+			"rnt-lib/*": ["../../packages/core/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
