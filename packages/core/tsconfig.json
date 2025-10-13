@@ -1,4 +1,7 @@
 {
-  "extends": "../../config/common.tsconfig.json",
-  "include": ["./**/*/packages/**", "./**"]
+  "extends": "../../tsconfig.json",
+  "include": ["./**/*/packages/**", "./**"],
+  "compilerOptions": {
+    "rootDir": "."
+  }
 }

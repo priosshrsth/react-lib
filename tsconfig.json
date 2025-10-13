@@ -12,14 +12,11 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "composite": true,
     "paths": {
-      "@/*": ["./*"],
-      "@packages/*": ["./packages/*"]
+      "@react-lib/*": ["./packages/*"]
     },
     "strictNullChecks": true
   },
-  "include": ["packages/**/*", "apps/**/*", "app.d.ts"],
-  "exclude": ["node_modules", "dist", "bunup.config.ts"],
-  "references": [{ "path": "./apps/ui" }]
+  "include": ["packages/**/*", "app.d.ts"],
+  "exclude": ["node_modules", "dist", "bunup.config.ts", "apps"]
 }

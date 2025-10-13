@@ -1,41 +1,50 @@
 "use client";
 
-import { useLazySearch } from "@packages/core/lazy-search";
-import { SearchQueryContext } from "@packages/core/search-query/contexts/search-query.context";
-import type { IBaseSearchQuery } from "@packages/core/search-query/types";
-import { setSearchParams } from "@packages/core/set-search-params";
+import { useLazySearch } from "@react-lib/core/lazy-search";
+import { SearchQueryContext } from "@react-lib/core/search-query/contexts/search-query.context";
+import type { IBaseSearchQuery } from "@react-lib/core/search-query/types";
+import { setSearchParams } from "@react-lib/core/set-search-params";
 import { isEqual } from "lodash";
 import { type ReactNode, useCallback, useEffect, useState, useTransition } from "react";
 
-import type { ZodObject, ZodType } from "zod/v4";
-
-type ProviderProps<T extends IBaseSearchQuery> = {
-  schema: ZodType<T>;
+type ProviderProps<T extends Record<string, unknown>> = {
+  defaultValues?: T;
   children: ReactNode;
-  initialSearchParams?: Record<string, unknown>;
+  initialSearchParams?: Partial<IBaseSearchQuery & T>;
   syncWithUrl?: boolean;
 };
 
-function getValidShape<T extends IBaseSearchQuery>(schema: ZodType<T>, data: Record<string, unknown>) {
-  return Object.keys(schema).reduce((validObj, key) => {
-    const zodSchema = (schema as unknown as ZodObject).shape[key];
-    const result = zodSchema.safeParse(data[key]);
-    if (result.success) {
-      // @ts-expect-error invalid
-      validObj[key] = result.data;
-    }
+const ALLOWED_BASE_KEYS = new Set<string>(["page", "limit", "search", "sortBy", "sortOrder"]);
 
-    return validObj;
-  }, {} as T);
+function filterInitialSearchParams<T extends Record<string, unknown>>(
+  initial: Partial<T> | undefined,
+  defaults: Partial<T> | undefined
+): Partial<T> {
+  const out: Partial<T> = {};
+  if (!initial) {
+    return out;
+  }
+  const defaultKeys = defaults ? (Object.keys(defaults) as (keyof T)[]) : ([] as (keyof T)[]);
+  for (const key of Object.keys(initial) as (keyof T)[]) {
+    if (ALLOWED_BASE_KEYS.has(String(key)) || defaultKeys.includes(key)) {
+      out[key] = initial[key];
+    }
+  }
+  return out;
 }
 
 export function SearchQueryProvider<T extends IBaseSearchQuery>({
   children,
-  schema,
   initialSearchParams,
+  defaultValues,
   syncWithUrl = false,
 }: ProviderProps<T>): ReactNode {
-  const [searchQuery, setSearchQuery] = useState<T>(getValidShape(schema, initialSearchParams ?? {}));
+  const initialFromDefaults = (defaultValues ?? {}) as T;
+  const filteredInitial = filterInitialSearchParams<T>(initialSearchParams, defaultValues);
+  const [searchQuery, setSearchQuery] = useState<T>({
+    ...initialFromDefaults,
+    ...(filteredInitial as Partial<T>),
+  } as T);
 
   const [total, setTotal] = useState(0);
 

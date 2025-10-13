@@ -3,6 +3,105 @@
   "description": "A react component library",
   "version": "0.0.1",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./packages/core": {
+      "import": {
+        "types": "./dist/packages/core/index.d.ts",
+        "default": "./dist/packages/core/index.js"
+      }
+    },
+    "./packages/core/table": {
+      "import": {
+        "types": "./dist/packages/core/table/index.d.ts",
+        "default": "./dist/packages/core/table/index.js"
+      }
+    },
+    "./packages/core/table/components/pagination": {
+      "import": {
+        "types": "./dist/packages/core/table/components/pagination.d.ts",
+        "default": "./dist/packages/core/table/components/pagination.js"
+      }
+    },
+    "./packages/core/table/components/table": {
+      "import": {
+        "types": "./dist/packages/core/table/components/table.d.ts",
+        "default": "./dist/packages/core/table/components/table.js"
+      }
+    },
+    "./packages/core/table/styles/default": {
+      "import": {
+        "types": "./dist/packages/core/table/styles/default.datatable.styles.d.ts",
+        "default": "./dist/packages/core/table/styles/default.datatable.styles.js"
+      }
+    },
+    "./packages/core/table/types/type": {
+      "import": {
+        "types": "./dist/packages/core/table/types/type.d.ts",
+        "default": "./dist/packages/core/table/types/type.js"
+      }
+    },
+    "./packages/core/search-query": {
+      "import": {
+        "types": "./dist/packages/core/search-query/index.d.ts",
+        "default": "./dist/packages/core/search-query/index.js"
+      }
+    },
+    "./packages/core/search-query/types": {
+      "import": {
+        "types": "./dist/packages/core/search-query/types/index.d.ts",
+        "default": "./dist/packages/core/search-query/types/index.js"
+      }
+    },
+    "./packages/core/search-query/types/search-query-context": {
+      "import": {
+        "types": "./dist/packages/core/search-query/types/search-query-context.types.d.ts",
+        "default": "./dist/packages/core/search-query/types/search-query-context.types.js"
+      }
+    },
+    "./packages/core/search-query/contexts": {
+      "import": {
+        "types": "./dist/packages/core/search-query/contexts/index.d.ts",
+        "default": "./dist/packages/core/search-query/contexts/index.js"
+      }
+    },
+    "./packages/core/search-query/contexts/search-query": {
+      "import": {
+        "types": "./dist/packages/core/search-query/contexts/search-query.provider.d.ts",
+        "default": "./dist/packages/core/search-query/contexts/search-query.context.js"
+      }
+    },
+    "./packages/core/set-search-params": {
+      "import": {
+        "types": "./dist/packages/core/set-search-params/index.d.ts",
+        "default": "./dist/packages/core/set-search-params/index.js"
+      }
+    },
+    "./packages/core/lazy-search": {
+      "import": {
+        "types": "./dist/packages/core/lazy-search/index.d.ts",
+        "default": "./dist/packages/core/lazy-search/index.js"
+      }
+    },
+    "./packages/core/lazy-search/hooks/use-lazy-search": {
+      "import": {
+        "types": "./dist/packages/core/lazy-search/hooks/use-lazy-search.d.ts",
+        "default": "./dist/packages/core/lazy-search/hooks/use-lazy-search.js"
+      }
+    },
+    "./packages/core/search-query/contexts/use-search-query": {
+      "import": {
+        "types": "./dist/packages/core/search-query/contexts/use-search-query.d.ts",
+        "default": "./dist/packages/core/search-query/contexts/use-search-query.js"
+      }
+    },
+    "./packages/core.css": "./dist/packages/core/index.css",
+    "./packages/core/table.css": "./dist/packages/core/table/index.css",
+    "./packages/core/table/components/table.css": "./dist/packages/core/table/components/table.css",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "bunup",
     "tsc": "tsc --noEmit"

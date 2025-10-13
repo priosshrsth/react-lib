@@ -10,7 +10,7 @@
     "dev:packages": "bun run --filter './packages/*' dev",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
-    "tsc": "tsc -b",
+    "tsc": "tsc --noEmit && bun run --filter './apps/*' tsc",
     "release": "bumpp --commit --push --tag"
   },
   "catalog": {
@@ -42,12 +42,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.5",
+    "@tanstack/react-query-devtools": "^5.90.2",
     "bumpp": "^10.3.1",
     "bunup": "^0.14.20",
     "lefthook": "^1.13.6",
     "lightningcss": "^1.30.2",
-    "ultracite": "^5.6.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "ultracite": "^5.6.2"
   },
   "workspaces": [
     "packages/*",
@@ -63,6 +64,7 @@
   },
   "homepage": "https://github.com/priosshrsth/@react-lib#readme",
   "dependencies": {
+    "@tanstack/react-query": "^5.90.2",
     "dev": "^0.1.3"
   }
 }

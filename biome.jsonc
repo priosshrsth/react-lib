@@ -1,11 +1,18 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "root": true,
   "extends": ["ultracite"],
+  "root": true,
+  //  "files": {
+  //    "ignoreUnknown": true,
+  //    "includes": ["./**/*"]
+  //  },
   "linter": {
     "rules": {
       "performance": {
         "noBarrelFile": "off"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
       }
     }
   },
