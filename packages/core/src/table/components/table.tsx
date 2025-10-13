@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import "@react-lib/core/table/styles/table.css";
-import { useSearchQuery } from "@react-lib/core/search-query/contexts/use-search-query";
+import { useSearchQuery } from "@react-lib/core/src/search-query/contexts/use-search-query";
 import type { ColumnDefinition, RowData } from "@react-lib/core/table/types/type";
 import type { ReactNode } from "react";
 
