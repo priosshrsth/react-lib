@@ -21,3 +21,12 @@ prebuild.ts
 .zed
 node_modules
 test
+biome.jsonc
+mise.toml
+bunup.config.ts
+.rules
+.gitignore
+.env
+.gitattributes
+.npmignore
+tsconfig.json
