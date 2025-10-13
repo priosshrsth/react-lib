@@ -9,6 +9,7 @@ scripts/
 tests/
 .gitignore
 prebuild.ts
+./apps/*
 ./apps
 .zed
 .github
