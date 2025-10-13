@@ -3,7 +3,7 @@ import { type DefineWorkspaceItem, defineWorkspace } from "bunup";
 const config: DefineWorkspaceItem[] = defineWorkspace(
   [
     {
-      name: "rnt-lib/core/",
+      name: "rnt-lib",
       root: "packages/core",
       config: {
         entry: ["**/*.ts", "**/*.tsx", "!dist"],
@@ -13,8 +13,8 @@ const config: DefineWorkspaceItem[] = defineWorkspace(
   {
     format: ["esm"],
     exports: {
-			all: false,
-		},
+      all: false,
+    },
     unused: true,
     drop: ["console", "debugger"],
     target: "bun",

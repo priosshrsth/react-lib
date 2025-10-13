@@ -1,9 +1,10 @@
 import clsx from "clsx";
 
 import "../styles/table.css";
-import { useSearchQuery } from "../../search-query/contexts/use-search-query";
-import type { ColumnDefinition, RowData } from "../types/type";
+
 import type { ReactNode } from "react";
+import { useSearchQuery } from "rnt-lib/search-query/contexts/use-search-query";
+import type { ColumnDefinition, RowData } from "../types/type";
 
 type ClassNames = {
   theadClassName?: string;

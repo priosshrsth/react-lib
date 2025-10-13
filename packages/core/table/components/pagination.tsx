@@ -1,8 +1,8 @@
 "use client";
 
-import { useSearchQuery } from "../../search-query/contexts/use-search-query";
 import clsx from "clsx";
 import type { ReactNode } from "react";
+import { useSearchQuery } from "../../search-query/contexts/use-search-query";
 
 const MAX_PAGES_TO_SHOW_ALL_PAGES = 7;
 const MIN_PAGE_TO_SHOW_ELLIPSIS = 3;

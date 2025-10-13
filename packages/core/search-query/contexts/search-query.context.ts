@@ -1,7 +1,7 @@
 "use client";
 
-import type { ISearchQueryContext } from "../types";
 import { type Context, createContext } from "react";
+import type { ISearchQueryContext } from "../types";
 
 export const SearchQueryContext: Context<ISearchQueryContext> = createContext<ISearchQueryContext>({
   searchQuery: {

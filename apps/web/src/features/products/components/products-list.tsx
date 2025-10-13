@@ -1,15 +1,15 @@
 "use client";
 
-import { useSearchQuery } from "rnt-lib/core//search-query/contexts/use-search-query";
+import { useEffect } from "react";
+import { useSearchQuery } from "rnt-lib/search-query/contexts/use-search-query";
+import { useProductsQuery } from "src/features/products/hooks/use-products-query";
+import type { ProductsQuery } from "src/features/products/schemas/product.schema";
+import type { ProductsResponse } from "src/features/products/types/product.response";
 import {
 	type ColumnDefinition,
 	Pagination,
 	Table,
 } from "../../../../../../packages/core/table";
-import { useEffect } from "react";
-import { useProductsQuery } from "src/features/products/hooks/use-products-query";
-import type { ProductsQuery } from "src/features/products/schemas/product.schema";
-import type { ProductsResponse } from "src/features/products/types/product.response";
 
 const columns: ColumnDefinition<ProductsResponse["products"][number]>[] = [
 	{
