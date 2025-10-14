@@ -1,0 +1,85 @@
+/* Dialog animations: slide up on open, slide down on close, with opacity.
+   Backdrop fades in/out slightly after the panel for a smoother exit. */
+
+dialog {
+	/* Closing animation (when the element loses [open]) */
+	animation: slide-down-out 0.35s ease-in forwards;
+}
+
+dialog[open] {
+	/* Opening animation */
+	animation: slide-up-in 0.35s ease-out forwards;
+}
+
+/* Backdrop: fade in while opening */
+dialog[open]::backdrop {
+	background-color: black;
+	animation: backdrop-fade-in 0.35s ease-out forwards;
+}
+
+/* Backdrop: fade out when closing (applies as [open] is removed) */
+dialog::backdrop {
+	background-color: black;
+	animation: backdrop-fade-out 0.35s ease-in forwards;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+	dialog,
+	dialog[open],
+	dialog::backdrop,
+	dialog[open]::backdrop {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}
+
+/* Animation keyframes */
+@keyframes slide-up-in {
+	0% {
+		opacity: 0;
+		transform: translateY(16px);
+		display: none;
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+		display: block;
+	}
+}
+
+@keyframes slide-down-out {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+		display: block;
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(16px);
+		display: none;
+	}
+}
+
+@keyframes backdrop-fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0.4;
+	}
+}
+
+@keyframes backdrop-fade-out {
+	0% {
+		opacity: 0.4;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+body,
+button {
+	font-family: system-ui;
+}

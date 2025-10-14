@@ -9,6 +9,7 @@
 		"tsc": "tsc --noemit"
 	},
 	"dependencies": {
+		"clsx": "catalog:",
 		"rnt-lib": "workspace:*",
 		"next": "15.5.4",
 		"react": "catalog:",

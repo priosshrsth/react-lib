@@ -22,6 +22,7 @@
       "name": "web",
       "version": "0.1.0",
       "dependencies": {
+        "clsx": "catalog:",
         "next": "15.5.4",
         "react": "catalog:",
         "react-dom": "catalog:",
