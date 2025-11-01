@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "bunup",
-    "dev": "bun run --filter './apps/*' dev",
+    "dev": "bun run -b --filter './apps/*' dev",
     "dev:pkg": "bunup --watch",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
@@ -24,6 +24,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "typescript": "^5.9.3",
+    "@typescript/native-preview": "^7.0.0-dev.20251101.1",
     "zod": "^4.1.12"
   },
   "catalogs": {
