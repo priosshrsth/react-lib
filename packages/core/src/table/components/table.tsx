@@ -1,12 +1,12 @@
 import clsx from "clsx";
 
-import "../styles/table.css";
+import "src/table/styles/table.css";
 
 import type { ReactNode } from "react";
-import { useSearchQuery } from "rnt-lib/search-query/contexts/use-search-query";
-import type { ColumnDefinition, RowData } from "../types/type";
+import type { ColumnDefinition, RowData } from "scr/table/types";
+import { useSearchQuery } from "src/search-query";
 
-type ClassNames = {
+interface ClassNames {
   theadClassName?: string;
   tbodyClassName?: string;
   headRowClassName?: string;
@@ -16,7 +16,7 @@ type ClassNames = {
   tdClassName?: string;
   cellClassName?: string;
   className?: string;
-};
+}
 
 export type TableProps = ClassNames & {
   noData?: ReactNode;

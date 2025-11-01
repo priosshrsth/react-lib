@@ -1,5 +1,5 @@
 import { type Context, useContext } from "react";
-import type { IBaseSearchQuery, ISearchQueryContext } from "../types";
+import type { IBaseSearchQuery, ISearchQueryContext } from "src/search-query/types";
 import { SearchQueryContext } from "./search-query.context";
 
 export function useSearchQuery<T extends IBaseSearchQuery = IBaseSearchQuery>(): ISearchQueryContext<T> {

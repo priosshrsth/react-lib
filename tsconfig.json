@@ -12,10 +12,6 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "paths": {
-      "rnt-lib": ["./packages/core"],
-      "rnt-lib/*": ["./packages/core/*"]
-    },
     "strictNullChecks": true
   },
   "include": ["packages/**/*", "app.d.ts"],

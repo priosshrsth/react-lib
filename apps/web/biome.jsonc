@@ -21,7 +21,7 @@
 				"noBarrelFile": "on"
 			},
 			"suspicious": {
-				"noUnknownAtRules": "off"
+				//				"noUnknownAtRules": "off"
 			},
 			"style": {
 				"noMagicNumbers": "off"
@@ -34,6 +34,11 @@
 			//    "domains": {
 			//      "next": "recommended",
 			//      "react": "recommended"
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
 		}
 	}
 	//  "assist": {

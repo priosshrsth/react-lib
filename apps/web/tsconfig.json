@@ -20,9 +20,7 @@
 			}
 		],
 		"paths": {
-			"src/*": ["./src/*"],
-			"rnt-lib": ["../../packages/core"],
-			"rnt-lib/*": ["../../packages/core/*"]
+			"src/*": ["./src/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

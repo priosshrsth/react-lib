@@ -1,18 +1,18 @@
 "use client";
 
-import { isEqual } from "lodash";
+import isEqual from "lodash/isEqual";
 import { type ReactNode, useCallback, useEffect, useState, useTransition } from "react";
-import { useLazySearch } from "../../lazy-search";
-import { setSearchParams } from "../../set-search-params";
-import type { IBaseSearchQuery } from "../types";
+import { useLazySearch } from "src/lazy-search";
+import type { IBaseSearchQuery } from "src/search-query/types";
+import { setSearchParams } from "src/set-search-params";
 import { SearchQueryContext } from "./search-query.context";
 
-type ProviderProps<T extends Record<string, unknown>> = {
+interface ProviderProps<T extends Record<string, unknown>> {
   defaultValues?: T;
   children: ReactNode;
   initialSearchParams?: Partial<IBaseSearchQuery & T>;
   syncWithUrl?: boolean;
-};
+}
 
 const ALLOWED_BASE_KEYS = new Set<string>(["page", "limit", "search", "sortBy", "sortOrder"]);
 

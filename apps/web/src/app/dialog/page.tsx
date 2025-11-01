@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Dialog from "src/components/ui/dialog/Dialog";
+import Dialog from "rnt-lib/dialog/Dialog";
 
 function SubDialog() {
 	const [open, setOpen] = useState(false);
@@ -62,6 +62,7 @@ export default function DialogPage() {
 			<Dialog
 				className={"rounded-xl"}
 				open={open}
+				closedBy={"none"}
 				onClose={() => setOpen(false)}
 			>
 				<div className="p-6 h-120 w-120">
@@ -77,6 +78,8 @@ export default function DialogPage() {
 					</form>
 
 					<h1>Hello There</h1>
+
+					<SubDialog />
 				</div>
 			</Dialog>
 		</div>

@@ -2,23 +2,23 @@
 
 import { type ChangeEvent, type Dispatch, type SetStateAction, useCallback, useEffect, useRef, useState } from "react";
 
-type UseLazySearchOptions = {
+interface UseLazySearchOptions {
   /** Pre-populates the search field once, typically from URL/search params */
   initialQuery?: string;
   /** Fires after the debounce delay with the latest query value */
   onDebouncedChange: (query: string) => void;
   /** Debounce delay in milliseconds for invoking onDebouncedChange */
   debounceMs?: number;
-};
+}
 
-export type UseLazySearchReturn = {
+export interface UseLazySearchReturn {
   /** Current query string bound to the input */
   searchQuery: string;
   /** Input/onChange handler that debounce before calling onDebouncedChange */
   handleInputChangeDebounced: (e: string | ChangeEvent<HTMLInputElement>) => void;
   /** Imperatively set the query immediately (no debounce) */
   setQueryImmediate: Dispatch<SetStateAction<string>>;
-};
+}
 
 export function useLazySearch({
   initialQuery,

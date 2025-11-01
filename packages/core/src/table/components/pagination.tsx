@@ -7,13 +7,13 @@ import { useSearchQuery } from "../../search-query/contexts/use-search-query";
 const MAX_PAGES_TO_SHOW_ALL_PAGES = 7;
 const MIN_PAGE_TO_SHOW_ELLIPSIS = 3;
 
-type PageBtnProps = {
+interface PageBtnProps {
   num: number;
   isActive: boolean;
   onClick: (n: number) => void;
   pageBtnClassName?: string;
   activePageBtnClassName?: string;
-};
+}
 
 function PageBtn({ num, isActive, onClick, pageBtnClassName, activePageBtnClassName }: PageBtnProps) {
   const className = [pageBtnClassName, isActive ? activePageBtnClassName : undefined].filter(Boolean).join(" ");
@@ -36,7 +36,7 @@ const makeEllipsis = (keyId: string, className?: string) => (
   </span>
 );
 
-export type PaginationProps = {
+export interface PaginationProps {
   containerClassName?: string;
   resultsWrapperClassName?: string;
   pageNumbersWrapperClassName?: string;
@@ -46,7 +46,7 @@ export type PaginationProps = {
   ellipsisClassName?: string;
   prevLabel?: ReactNode;
   nextLabel?: ReactNode;
-};
+}
 
 export function Pagination({
   containerClassName,
