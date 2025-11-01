@@ -10,7 +10,7 @@
     "dev:pkg": "bunup --watch",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
-    "tsc": "bun run --filter './packages/*' tsc",
+    "tsc": "bun run -b --filter './packages/*' tsc",
     "publish": "bun run scripts/publish.ts"
   },
   "dependencies": {
