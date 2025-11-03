@@ -1,3 +1,5 @@
+"use client";
+
 import clsx from "clsx";
 import { type FC, type ReactEventHandler, type ReactNode, useEffect, useRef } from "react";
 

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-import "src/table/styles/table.css";
+import "lib/table/styles/table.css";
 
+import { useSearchQuery } from "lib/search-query";
+import type { ColumnDefinition, RowData } from "lib/table/types";
 import type { ReactNode } from "react";
-import type { ColumnDefinition, RowData } from "scr/table/types";
-import { useSearchQuery } from "src/search-query";
 
 interface ClassNames {
   theadClassName?: string;
