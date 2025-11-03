@@ -1,7 +1,7 @@
 {
   "name": "@rnt-lib/core",
   "description": "A react component library",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha-0.0.0",
   "type": "module",
   "files": [
     "dist/packages/core/src"

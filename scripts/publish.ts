@@ -139,6 +139,17 @@ async function run(cmd: string[], cwd: string): Promise<number> {
   return await proc.exited;
 }
 
+const tagRegex = /-(?<tag>[0-9A-Za-z-.]+)/;
+
+function getPublishTag(version: string): string | null {
+  const prereleaseMatch = version.match(tagRegex);
+  if (!prereleaseMatch) {
+    return null;
+  }
+  const tag = prereleaseMatch.groups?.tag?.split(".")[0] ?? "next";
+  return tag || "next";
+}
+
 async function publishPackage(pkg: PkgInfo): Promise<{ success: boolean; code: number }> {
   log.info(`\n→ Publishing ${pkg.name}@${pkg.version}`);
   if (flags.dry) {
@@ -153,9 +164,14 @@ async function publishPackage(pkg: PkgInfo): Promise<{ success: boolean; code: n
     return { success: code === 0, code };
   }
 
-  // Fallback to npm publish with explicit public access
-  log.verbose("No publish script found; running `npm publish --access public`");
-  const code = await run(["npm", "publish", "--access", "public"], pkg.dir);
+  const tag = getPublishTag(pkg.version);
+
+  const args = ["npm", "publish", "--access", "public"];
+  if (tag) {
+    log.verbose(`Detected prerelease version. Using tag "${tag}"`);
+    args.push("--tag", tag);
+  }
+  const code = await run(args, pkg.dir);
   return { success: code === 0, code };
 }
 
