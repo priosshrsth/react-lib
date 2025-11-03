@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type RowData = Record<string, unknown>;
 
-export type ColumnDefinition<TData extends RowData> = {
+export interface ColumnDefinition<TData extends RowData> {
   header?: ReactNode;
   accessor: Extract<keyof TData, string> | string;
   value?: ReactNode | ((row: TData, meta: { index: number; pageIndex: number }) => ReactNode);
@@ -12,4 +12,4 @@ export type ColumnDefinition<TData extends RowData> = {
   tdClassName?: string;
   isSortable?: boolean;
   skeleton?: ReactNode;
-};
+}

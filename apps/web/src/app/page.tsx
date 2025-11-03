@@ -12,6 +12,12 @@ export default function Home() {
 					src="/next.svg"
 					width={180}
 				/>
+				{typeof globalThis.Bun === "object" ? (
+					<h1>Running on Bun {process.versions.bun}</h1>
+				) : (
+					<h2>Node version: {process.versions.node}</h2>
+				)}
+
 				<ol className="list-inside list-decimal text-center font-mono text-sm/6 sm:text-left">
 					<li className="mb-2 tracking-[-.01em]">
 						Get started by editing{" "}

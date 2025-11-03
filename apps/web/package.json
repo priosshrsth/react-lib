@@ -3,24 +3,26 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build --turbopack",
-		"start": "next start",
+		"dev": "bun -b next dev --turbopack",
+		"build": "bun -b next build --turbopack",
+		"start": "bun -b next start",
 		"tsc": "tsc --noemit"
 	},
 	"dependencies": {
-		"rnt-lib": "workspace:*",
-		"next": "15.5.4",
+		"clsx": "catalog:",
+		"@rnt-lib/core": "workspace:*",
+		"next": "16.0.1",
 		"react": "catalog:",
 		"react-dom": "catalog:",
-		"zod": "^4.1.12"
+		"zod": "catalog:"
 	},
 	"devDependencies": {
 		"typescript": "catalog:",
+		"@types/bun": "catalog:types",
 		"@types/node": "^22",
 		"@types/react": "catalog:types",
 		"@types/react-dom": "catalog:types",
-		"@tailwindcss/postcss": "^4.1.14",
-		"tailwindcss": "^4.1.14"
+		"@tailwindcss/postcss": "^4.1.16",
+		"tailwindcss": "^4.1.16"
 	}
 }

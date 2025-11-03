@@ -1,0 +1,49 @@
+/*   0. IS-OPEN STATE   */
+dialog[open] {
+  translate: 0 0;
+  opacity: 1;
+}
+
+dialog[open]::backdrop {
+  opacity: 1;
+}
+
+/*   1. BEFORE-OPEN STATE   */
+@starting-style {
+  dialog[open] {
+    translate: 0 100vh;
+    opacity: 0;
+  }
+
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/*   2. EXIT STATE   */
+/*noinspection CssInvalidPropertyValue*/
+dialog {
+  transition:
+    translate 0.4s ease-out allow-discrete,
+    opacity 0.4s ease-out allow-discrete,
+    overlay 0.4s ease-out allow-discrete,
+    display 0.4s ease-out allow-discrete;
+  translate: 0 100vh;
+}
+
+/*noinspection CssInvalidPropertyValue*/
+dialog::backdrop {
+  /* Animate backdrop opacity in both directions */
+  transition: opacity 0.4s ease-out allow-discrete;
+  opacity: 0;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  dialog,
+  dialog::backdrop,
+  dialog[open] {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

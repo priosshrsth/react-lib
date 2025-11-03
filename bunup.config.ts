@@ -6,18 +6,15 @@ const config: DefineWorkspaceItem[] = defineWorkspace(
       name: "rnt-lib",
       root: "packages/core",
       config: {
-        entry: ["**/*.ts", "**/*.tsx", "!dist"],
+        entry: ["src/**/*.ts", "src/**/*.tsx"],
       },
     },
   ],
   {
     format: ["esm"],
-    exports: {
-      all: false,
-    },
+    exports: false,
     unused: true,
     drop: ["console", "debugger"],
-    target: "bun",
     noExternal: ["lodash", "react", "next", "tailwindcss", "typescript", "zod"],
   }
 );

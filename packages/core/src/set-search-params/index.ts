@@ -1,6 +1,6 @@
-type Options = {
+interface Options {
   pushToHistory?: boolean;
-};
+}
 
 export function setSearchParams(paramsToSet: object, options?: Options): void {
   const url = new URL(window.location.href);

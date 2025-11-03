@@ -1,41 +1,40 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite"],
+  "extends": ["ultracite/core", "ultracite/next", "ultracite/react"],
   "root": true,
-  //  "files": {
-  //    "ignoreUnknown": true,
-  //    "includes": ["./**/*"]
-  //  },
   "linter": {
     "rules": {
       "performance": {
         "noBarrelFile": "off"
       },
-      "suspicious": {
-        "noUnknownAtRules": "off"
+      "nursery": {
+        "noIncrementDecrement": "off"
+      },
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "interface"
+          }
+        },
+        "noRestrictedImports": {
+          "options": {
+            "patterns": [
+              {
+                "group": ["../*"],
+                "message": "Relative imports are not allowed"
+              }
+            ]
+          },
+          "level": "error"
+        }
       }
     }
   },
-  //  "assist": {
-  //    "enabled": true,
-  //    "actions": {
-  //      "source": {
-  //        "organizeImports": {
-  //          "level": "on",
-  //          "options": {
-  //            "groups": [
-  //              {
-  //                "type": true
-  //              }
-  //            ]
-  //          }
-  //        }
-  //      }
-  //    }
-  //  },
   "formatter": {
     "enabled": true,
     "useEditorconfig": true,
+    "formatWithErrors": true,
     "lineWidth": 120
   },
   "javascript": {

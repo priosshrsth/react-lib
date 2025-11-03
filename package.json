@@ -1,54 +1,63 @@
 {
-  "name": "@anitshrsth/rnt-lib",
+  "name": "rnt-lib",
   "description": "A react component library",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.0",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "bunup",
-    "dev": "bun run --filter './apps/*' dev",
-    "dev:apps": "bun run --filter './apps/*' dev",
-    "dev:packages": "bun run --filter './packages/*' dev",
+    "dev": "bun run -b --filter './apps/*' dev",
+    "dev:pkg": "bunup --watch",
     "lint": "ultracite check",
     "lint:fix": "ultracite fix",
-    "tsc": "tsc --noEmit && bun run --filter './apps/*' tsc",
-    "release": "bumpp --commit --push --tag"
+    "tsc": "bun run -b --filter './packages/*' tsc",
+    "publish": "bun run scripts/publish.ts"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "catalog": {
-    "clsx": "^2.1.1",
+    "clsx": "2",
     "lodash": "^4.17.21",
     "qs": "^6.14.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "typescript": "^5.9.3",
+    "@typescript/native-preview": "^7.0.0-dev.20251101.1",
     "zod": "^4.1.12"
   },
   "catalogs": {
     "types": {
-      "@types/bun": "^1.2.23",
+      "@types/bun": "^1.3.1",
       "@types/lodash": "^4.17.20",
       "@types/qs": "^6.14.0",
-      "@types/react": "^19.2.0",
-      "@types/react-dom": "^19.2.0"
+      "@types/react": "^19.2.2",
+      "@types/react-dom": "^19.2.2"
     },
     "peer": {
-      "clsx": "^2.1.0",
-      "lodash": "^4",
-      "qs": "^6",
-      "react": "^18.0.0 || ^19.0.0 || ^19.0.0-rc",
-      "react-dom": "^18.0.0 || ^19.0.0 || ^19.0.0-rc",
+      "clsx": "^2.1.1",
+      "lodash": "^4.17.21",
+      "qs": "^6.14.0",
+      "react": "^19.2.0",
+      "react-dom": "^19.2.0",
       "typescript": ">=4.5.0",
-      "zod": "^4"
+      "zod": "^4.1.12"
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.5",
+    "@biomejs/biome": "2.3.2",
+    "@nx/next": "22.0.2",
     "@tanstack/react-query-devtools": "^5.90.2",
+    "@types/bun": "^1.3.1",
+    "@types/node": "^24.10.0",
     "bumpp": "^10.3.1",
-    "bunup": "^0.14.20",
-    "lefthook": "^1.13.6",
+    "bunup": "^0.15.13",
+    "dev": "^0.1.3",
+    "lefthook": "^2.0.2",
     "lightningcss": "^1.30.2",
     "typescript": "^5.9.3",
-    "ultracite": "^5.6.2"
+    "ultracite": "^6.1.0"
   },
   "workspaces": [
     "packages/*",
@@ -62,9 +71,5 @@
   "bugs": {
     "url": "https://github.com/priosshrsth/@react-lib/issues"
   },
-  "homepage": "https://github.com/priosshrsth/@react-lib#readme",
-  "dependencies": {
-    "@tanstack/react-query": "^5.90.2",
-    "dev": "^0.1.3"
-  }
+  "homepage": "https://github.com/priosshrsth/@react-lib#readme"
 }

@@ -12,12 +12,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "paths": {
-      "rnt-lib": ["./packages/core"],
-      "rnt-lib/*": ["./packages/core/*"]
-    },
     "strictNullChecks": true
   },
-  "include": ["packages/**/*", "app.d.ts"],
+  "include": ["packages/**/*", "app.d.ts", "scripts/*.ts"],
   "exclude": ["node_modules", "dist", "bunup.config.ts", "apps"]
 }
