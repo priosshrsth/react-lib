@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "files": [
-    "dist/packages/core/src",
-    "src"
+    "dist/packages/core/src"
   ],
   "scripts": {
     "tsc": "tsc --noEmit"
