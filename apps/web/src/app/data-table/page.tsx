@@ -1,4 +1,4 @@
-import { SearchQueryProvider } from "packages/src/search-query";
+import { SearchQueryProvider } from "@rnt-lib/core";
 import { ProductsList } from "src/features/products/components/products-list";
 
 export default async function DataTablePage(props: {

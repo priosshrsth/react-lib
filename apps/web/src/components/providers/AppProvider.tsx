@@ -44,8 +44,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
 	return (
 		<QueryClientProvider client={queryClient}>
+			{queryClient ? (
+				// @ts-expect-error
+				<ReactQueryDevtools client={queryClient} initialIsOpen={false} />
+			) : null}
 			{children}
-			<ReactQueryDevtools initialIsOpen={false} />
 		</QueryClientProvider>
 	);
 }

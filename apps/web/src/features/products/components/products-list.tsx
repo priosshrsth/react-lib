@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
 import {
 	type ColumnDefinition,
 	Pagination,
 	Table,
 	useSearchQuery,
-} from "rnt-lib";
+} from "@rnt-lib/core";
+import { useEffect } from "react";
 
 import { useProductsQuery } from "src/features/products/hooks/use-products-query";
 import type { ProductsQuery } from "src/features/products/schemas/product.schema";

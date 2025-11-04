@@ -42,5 +42,11 @@
       "indentStyle": "space",
       "bracketSpacing": true
     }
+  },
+  "json": {
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true
+    }
   }
 }

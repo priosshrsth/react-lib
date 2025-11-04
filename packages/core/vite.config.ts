@@ -32,7 +32,11 @@ export default defineConfig({
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",
       },
-      external: [...Object.keys(peerDependencies), "lodash", "react"],
+      watch: {
+        include: "lib/*",
+        clearScreen: true,
+      },
+      external: [...Object.keys(peerDependencies), "lodash", "react", "react/jsx-runtime", "lodash/*", "bun"],
     },
     sourcemap: true,
     emptyOutDir: true,

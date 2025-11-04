@@ -1,4 +1,4 @@
-import type { IBaseSearchQuery } from "rnt-lib";
+import type { IBaseSearchQuery } from "@rnt-lib/core";
 import { z } from "zod";
 
 export const ProductSchema = z.object({
